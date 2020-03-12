@@ -1,0 +1,61 @@
+<header class="sticky">
+  <a routerLink="/projects" routerLinkActive="router-link-active" class="button">
+    <span> Listar proyectos</span>
+    </a>
+  <a routerLink="new" routerLinkActive="router-link-active" class="button">
+  <span> Nuevo proyecto</span>
+  </a>
+</header>
+
+<h2>{{ header }}</h2>
+<p>{{ description | uppercase }}</p>
+<h2>
+  Tenemos actualmente <mark [class]="counterClass">{{ numeroProyectos }}</mark>
+</h2>
+<br>
+
+<div>
+  <h3>Listado de proyectos (<- pongo otro control abajo para verlos, porque para que esta funcionase tendría que actualziarse automáticamente cuando cambia el array</h3>
+  <table mat-table #table [dataSource]="projects" class="dataTable">
+    <ng-container matColumnDef="idPro">
+      <th mat-header-cell *matHeaderCellDef> Id Proyecto </th>
+      <td mat-cell *matCellDef="let project"> {{project.idPro}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let project"> {{project.namePro}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Descripción </th>
+      <td mat-cell *matCellDef="let project"> {{project.desPro}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Acción </th>
+      <td mat-cell *matCellDef="let project"><input value="Delete"
+        type="button"
+        (click)="deleteProject(project)" /></td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+<ul *ngIf="projects.length>0; else empty">
+  <li *ngFor="let project of projects">
+    <span>id: {{ project.idPro }}</span>
+    <span>nombre: {{ project.namePro }}</span>
+    <span>descripción: {{ project.desPro }}</span>
+    <span><input value="Delete"
+      type="button"
+      (click)="deleteProject(project)" /></span>
+      <span>
+        <input #ver value="Ver Proyecto" type="button" (click)="refresh()" routerLink="/projects/ver/{{ project.idPro }}" />
+
+      </span>
+  </li>
+  </ul>
+  <ng-template #empty> <i>No tenemos datos</i> </ng-template>
+

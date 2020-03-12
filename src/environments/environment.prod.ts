@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  appName: 'Angular Abel PROD',
+  production: true,
+  unitsCulture: 'metric'
 };

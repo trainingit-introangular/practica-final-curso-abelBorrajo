@@ -1,0 +1,9 @@
+<form>
+  <span *ngIf="projectSel != null; else empty">
+    <legend>Proyecto Seleccionado:</legend>
+    <span >Id: {{ projectSel.idPro }} </span>
+    <span>nombre: {{ projectSel.namePro }} </span>
+    <span>descripción: {{ projectSel.desPro }} </span>
+  </span>
+  <ng-template #empty> <i>Selecciona un proyecto para ver os detalles</i> </ng-template>
+</form>

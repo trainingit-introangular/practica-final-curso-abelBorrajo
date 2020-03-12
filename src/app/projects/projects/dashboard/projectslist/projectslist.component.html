@@ -1,0 +1,15 @@
+<ul *ngIf="projectsFiltrado.length>0; else empty">
+  <legend>Listado de proyectos disponibles:</legend>
+<li *ngFor="let project of projectsFiltrado">
+  <span>id: {{ project.idPro }} </span>
+  <span>nombre: {{ project.namePro }} </span>
+  <!--<input value="Ver"
+  type="button"
+  (click)="verProyecto(project)" /> -->
+  <a routerLink="ver/{{ project.idPro }}" class="button">Ver proyecto</a>
+  <input value="Borrar"
+  type="button"
+  (click)="borrarProyecto(project)" />
+</li>
+</ul>
+<ng-template #empty> <i>No tenemos datos</i> </ng-template>

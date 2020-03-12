@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  appName: 'Angular Abel DEV',
+  production: false,
+  unitsCulture: 'usa',
+  projects: [
+    { idPro: 0, namePro: 'Learn Angular', desPro: 'fsdf' },
+    { idPro: 1, namePro: 'Develop My Dream app', desPro: 'fsdf' },
+    { idPro: 2, namePro: 'Abel: Travel around the world', desPro: 'fsdf' },
+    { idPro: 3, namePro: 'Clean my room', desPro: 'fsdf' }
+  ]
 };
 
 /*

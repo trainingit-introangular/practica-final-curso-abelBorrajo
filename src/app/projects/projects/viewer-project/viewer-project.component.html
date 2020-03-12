@@ -1,0 +1,14 @@
+<h1>{{project.idPro}} - {{project.namePro}} </h1>
+<br>
+<form>
+  <span *ngIf="project != null; else empty">
+    <legend>Proyecto Seleccionado:</legend>
+    <span style="margin: 20px; padding: 1%;">Id: {{ project.idPro }} </span>
+    <br>
+    <span style="margin: 20px; padding: 1%;">Nombre: {{ project.namePro }} </span>
+    <br>
+    <span style="margin: 20px; padding: 1%;">Descripción: {{ project.desPro }} </span>
+  </span>
+  <ng-template #empty> <i>Selecciona un proyecto que exista para poder verlo</i> </ng-template>
+</form>
+<a routerLink="/projects" class="button">Volver a la lista de proyectos!</a>

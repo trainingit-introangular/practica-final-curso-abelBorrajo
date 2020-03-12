@@ -1,0 +1,27 @@
+<span>
+  <h3>¡Tenemos un total de {{ numProjects }} proyectos!</h3>
+</span>
+<app-filterprojectsform (filterName)="onFilterName($event)">
+</app-filterprojectsform>
+
+<app-projectlistmaterial  [dataSource]=" dataSource" (viewProject)="onViewProject($event)" (deleteProject)="onDeleteProject($event)">
+</app-projectlistmaterial>
+<!--
+<app-projectslist [projectsFiltrado]="projectsFiltrado" (viewProject)="onViewProject($event)" (deleteProject)="onDeleteProject($event)">
+</app-projectslist>
+
+<app-viewerprojectform [projectSel]="projectSel"></app-viewerprojectform>
+-->
+<app-newprojectform (newProject)="onNewProject($event)"></app-newprojectform>
+
+<pre>
+  Dashboard.html-> PRE: Valores remotos para comprobación del guardado y recuperación:
+  <span *ngIf="projectsFiltradoHttp$ != null; else empty">
+    <ul>
+      <li *ngFor="let project of projectsFiltradoHttp$ | async">{{ project | json }}
+      </li>
+    </ul>
+</span>
+<ng-template #empty> <i>Selecciona un proyecto para ver os detalles</i> </ng-template>
+</pre>
+

@@ -1,0 +1,21 @@
+<form>
+  <fieldset>
+    <legend>Nuevo Proyecto</legend>
+    <section>
+      <label for="namePro">Nombre del proyecto.</label>
+      <input name="namePro"
+             type="text"
+             [(ngModel)]="project.namePro"/>
+    </section>
+    <section>
+      <label for="desPro">Descripción del proyecto.</label>
+      <input name="desPro"
+             type="text"
+             [(ngModel)]="project.desPro" />
+    </section>
+  </fieldset>
+  <input value="Save"
+         type="submit"
+         (click)="saveProject()" />
+</form>
+
